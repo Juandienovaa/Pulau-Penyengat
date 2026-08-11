@@ -8,6 +8,7 @@ import { FeaturedEvent } from "@/components/agenda/FeaturedEvent";
 import { EventTimeline } from "@/components/agenda/EventTimeline";
 import { GurindamSpotlight } from "@/components/agenda/GurindamSpotlight";
 import { EventStats } from "@/components/agenda/EventStats";
+import { AgendaTransport } from "@/components/agenda/AgendaTransport";
 
 export const metadata: Metadata = {
   title: "Agenda & Festival | Pulau Penyengat",
@@ -43,17 +44,20 @@ export default function AgendaPage() {
         {/* 6. Gurindam Spotlight */}
         <GurindamSpotlight />
 
+        {/* 7. Transport Info */}
+        <AgendaTransport />
+
         {/* CTA Banner */}
         <section className="py-24 bg-navy relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2000&auto=format&fit=crop')] opacity-20 bg-cover bg-center mix-blend-overlay" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy/80 to-navy" />
           
           <div className="container mx-auto px-6 relative z-10 text-center">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-8 max-w-3xl mx-auto leading-tight">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-8 max-w-3xl mx-auto leading-tight">
               Jadikan Pulau Penyengat Tujuan Perjalanan Budaya Anda Berikutnya
             </h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="/peta" className="px-8 py-4 bg-gold text-navy font-bold rounded-2xl hover:bg-white transition-colors w-full sm:w-auto">
+              <a href="/peta" className="px-8 py-4 bg-gold text-navy font-bold rounded-2xl hover:bg-white hover:-translate-y-1 transition-all w-full sm:w-auto shadow-[0_10px_40px_rgba(212,175,55,0.3)]">
                 Lihat Peta Interaktif
               </a>
               <a href="/sejarah" className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-2xl hover:bg-white/20 transition-colors w-full sm:w-auto">

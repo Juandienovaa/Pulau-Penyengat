@@ -20,9 +20,13 @@ export function GurindamSpotlight() {
             <span className="font-heading text-2xl font-bold">XII</span>
           </div>
           <span className="text-sm font-bold uppercase tracking-widest text-gold block mb-4">Gurindam Dua Belas</span>
-          <h2 className="text-3xl md:text-5xl font-heading font-bold text-navy mb-10 leading-relaxed">
-            "Barang siapa tiada memegang agama, <br className="hidden md:block"/> Sekali-kali tiada boleh dibilangkan nama."
-          </h2>
+          <div className="relative">
+            <div className="absolute -top-10 -left-10 text-9xl text-gold/20 font-serif leading-none">"</div>
+            <div className="absolute -bottom-20 -right-10 text-9xl text-gold/20 font-serif leading-none">"</div>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-navy mb-8 leading-relaxed italic relative z-10">
+              "Barang siapa tiada memegang agama, <br className="hidden md:block"/> Sekali-kali tiada boleh dibilangkan nama."
+            </h2>
+          </div>
         </motion.div>
 
         <motion.div 
@@ -35,12 +39,12 @@ export function GurindamSpotlight() {
           <div className="flex flex-col md:flex-row gap-8 items-start">
             <div className="flex-1">
               <h4 className="text-lg font-bold text-navy mb-2">Makna Falsafah</h4>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-navy/70 font-body mb-6 leading-relaxed">
                 Agama adalah fondasi utama bagi seseorang untuk dihargai dan diakui eksistensinya dalam masyarakat. Tanpa panduan spiritual, kehormatan seseorang tidak memiliki dasar yang kuat.
               </p>
               
               <h4 className="text-lg font-bold text-navy mb-2">Konteks Festival</h4>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-navy/70 font-body leading-relaxed">
                 Menjadi tema sentral dalam setiap perayaan budaya Melayu di Pulau Penyengat, memastikan bahwa setiap atraksi dan karya seni yang ditampilkan tetap berpegang teguh pada nilai-nilai keislaman sejarah Riau-Lingga.
               </p>
             </div>

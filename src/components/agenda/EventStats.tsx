@@ -23,7 +23,7 @@ export function EventStats() {
               transition={{ delay: idx * 0.1 }}
               className="flex flex-col items-center"
             >
-              <span className="text-4xl md:text-6xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-br from-gold to-yellow-200 mb-2">
+              <span className="text-4xl md:text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-br from-gold to-yellow-200 mb-2">
                 {stat.value}
               </span>
               <span className="text-white/60 text-sm font-bold uppercase tracking-widest">{stat.label}</span>

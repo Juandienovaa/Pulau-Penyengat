@@ -41,8 +41,8 @@ export function FeaturedEvent({ event }: { event: EventCMS }) {
               {/* Glass Countdown Card */}
               <div className="absolute bottom-6 left-6 right-6 p-6 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 text-white flex justify-between items-center">
                 <div>
-                  <span className="text-sm font-bold uppercase tracking-widest text-gold block mb-1">Mulai Dalam</span>
-                  <div className="text-4xl font-heading font-bold">{daysLeft} Hari</div>
+                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-gold block mb-1">Mulai Dalam</span>
+                  <div className="text-3xl md:text-4xl font-serif font-bold">{daysLeft} Hari</div>
                 </div>
                 {event.registration_link && (
                   <a href={event.registration_link} className="px-6 py-3 bg-white text-navy font-bold rounded-xl hover:scale-105 transition-transform flex items-center gap-2">
@@ -65,11 +65,11 @@ export function FeaturedEvent({ event }: { event: EventCMS }) {
                 Sorotan Utama
               </span>
               
-              <h2 className="text-4xl md:text-5xl font-heading font-bold text-navy mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-6 leading-tight">
                 {event.title}
               </h2>
               
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-lg text-navy/70 font-body font-light mb-8 leading-relaxed">
                 {event.description}
               </p>
               

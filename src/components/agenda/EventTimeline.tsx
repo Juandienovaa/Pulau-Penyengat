@@ -13,8 +13,8 @@ export function EventTimeline({ events }: { events: EventCMS[] }) {
     <section className="py-24 bg-white relative">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-16">
-          <span className="text-sm font-bold tracking-widest text-gold uppercase block mb-4">Agenda Tahunan</span>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-navy">Linimasa Festival</h2>
+          <span className="text-xs font-bold tracking-[0.2em] text-gold uppercase block mb-4">Agenda Tahunan</span>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy">Linimasa Festival</h2>
         </div>
 
         <div className="relative">
@@ -52,8 +52,8 @@ export function EventTimeline({ events }: { events: EventCMS[] }) {
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                     </div>
-                    <h3 className="text-2xl font-heading font-bold text-navy mb-3 group-hover:text-gold transition-colors">{evt.title}</h3>
-                    <p className="text-gray-500 text-sm mb-4 line-clamp-3">{evt.description}</p>
+                    <h3 className="text-2xl font-serif font-bold text-navy mb-3 group-hover:text-gold transition-colors">{evt.title}</h3>
+                    <p className="text-navy/70 font-body font-light text-sm mb-4 line-clamp-3">{evt.description}</p>
                     
                     <button className="inline-flex items-center gap-2 text-navy font-bold text-sm hover:text-gold transition-colors">
                       Pelajari Lebih Lanjut <ArrowRight className="w-4 h-4" />
