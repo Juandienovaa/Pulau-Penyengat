@@ -6,15 +6,15 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-gold: #E1251B; /* Repurposing gold as primary RED to avoid replacing all classes manually */
-  --color-gold-light: #F24C44;
-  --color-gold-dark: #B31710;
+  --color-gold: #D4AF37; /* Match Navbar Gold */
+  --color-gold-light: #E5C158;
+  --color-gold-dark: #B38F24;
   
-  --color-navy: #1A1A1A; /* Repurposing navy as deep CHARCOAL */
-  --color-navy-light: #2D2D2D;
-  --color-navy-dark: #0A0A0A;
+  --color-navy: #050505; /* Match Hero Section Background */
+  --color-navy-light: #1A1A1A;
+  --color-navy-dark: #000000;
   
-  --color-cream: #F8F9FA; /* Off-white for sections */
+  --color-cream: #FFFDF5; /* Warm off-white */
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -22,6 +22,8 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+  --font-serif: var(--font-playfair), "Playfair Display", ui-serif, Georgia, serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
