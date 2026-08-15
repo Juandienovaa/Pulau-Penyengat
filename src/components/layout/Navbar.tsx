@@ -105,7 +105,14 @@ export function Navbar() {
           </nav>
 
           {/* ── CTA ── */}
-          <div className="hidden lg:block shrink-0">
+          <div className="hidden lg:flex items-center gap-4 shrink-0">
+            <Link
+              href="/login"
+              className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/50 hover:text-white transition-colors"
+              style={{ fontFamily: "var(--font-montserrat), sans-serif" }}
+            >
+              Admin
+            </Link>
             <Link
               href="/peta"
               className="inline-flex items-center gap-2 px-5 py-2 text-[11px] font-bold uppercase tracking-[0.12em] transition-all duration-200 hover:opacity-85"
@@ -202,7 +209,7 @@ export function Navbar() {
             </div>
 
             {/* CTA */}
-            <div className="px-8 pb-12">
+            <div className="px-8 pb-12 flex flex-col gap-4">
               <Link
                 href="/peta"
                 className="w-full flex items-center justify-center py-4 text-[11px] font-bold uppercase tracking-[0.2em] transition-opacity hover:opacity-85"
@@ -215,6 +222,14 @@ export function Navbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Mulai Eksplorasi
+              </Link>
+              <Link
+                href="/login"
+                className="w-full flex items-center justify-center py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors"
+                style={{ fontFamily: "var(--font-montserrat), sans-serif" }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Login Admin
               </Link>
             </div>
           </motion.div>

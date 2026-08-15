@@ -4,9 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { UMKM_DATA, UMKMCategory } from "@/lib/data/umkm";
 
-const CATEGORIES: { label: string; value: UMKMCategory | "Semua" }[] = [
+const CATEGORIES: { label: string; value: string }[] = [
   { label: "Semua", value: "Semua" },
   { label: "Kuliner", value: "Kuliner" },
   { label: "Oleh-Oleh", value: "Oleh-Oleh" },
@@ -15,10 +14,10 @@ const CATEGORIES: { label: string; value: UMKMCategory | "Semua" }[] = [
   { label: "Homestay", value: "Homestay" },
 ];
 
-export function UMKMFeatured() {
-  const [activeCategory, setActiveCategory] = useState<UMKMCategory | "Semua">("Semua");
+export function UMKMFeatured({ initialData }: { initialData: any[] }) {
+  const [activeCategory, setActiveCategory] = useState<string>("Semua");
 
-  const filteredUMKM = UMKM_DATA.filter((umkm) => 
+  const filteredUMKM = initialData.filter((umkm) => 
     activeCategory === "Semua" ? true : umkm.category === activeCategory
   );
 
@@ -94,7 +93,7 @@ export function UMKMFeatured() {
                   >
                     <div className={`relative w-full overflow-hidden bg-navy/5 ${isFeaturedMobile ? 'h-56 md:h-60' : 'h-36 md:h-60'}`}>
                       <Image
-                        src={umkm.coverImage}
+                        src={umkm.cover_image || "/images/umkm/deram-deram-cover.jpg"}
                         alt={umkm.name}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"

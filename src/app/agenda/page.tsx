@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { agendaMockData } from "@/lib/data/agenda";
+import { createServerSupabaseClient } from "@/lib/supabase/server";
+import { EventCMS } from "@/lib/data/agenda";
 import { AgendaHero } from "@/components/agenda/AgendaHero";
 import { QuickCalendar } from "@/components/agenda/QuickCalendar";
 import { FeaturedEvent } from "@/components/agenda/FeaturedEvent";
@@ -15,9 +16,52 @@ export const metadata: Metadata = {
   description: "Jelajahi kalender festival dan acara kebudayaan terbesar di Pulau Penyengat.",
 };
 
-export default function AgendaPage() {
-  const featuredEvents = agendaMockData.slice(0, 3); // Get top 3 for slider
-  const featuredSingle = agendaMockData[0]; // Hero feature
+export default async function AgendaPage() {
+  const supabase = await createServerSupabaseClient();
+  const { data: rawEvents } = await supabase
+    .from("agenda")
+    .select("*")
+    .eq("status", "published")
+    .order("start_date", { ascending: true });
+
+  const now = new Date();
+  
+  const mappedEvents: EventCMS[] = (rawEvents || []).map(event => {
+    const startDate = new Date(event.start_date);
+    const endDate = new Date(event.end_date);
+    
+    let status: 'Upcoming' | 'Today' | 'Completed' = 'Completed';
+    if (now < startDate) {
+      status = 'Upcoming';
+    } else if (now >= startDate && now <= endDate) {
+      status = 'Today';
+    }
+
+    return {
+      id: event.id,
+      slug: event.slug,
+      title: event.title,
+      subtitle: event.subtitle || "",
+      description: event.description,
+      history: event.description, // Fallback
+      start_date: event.start_date,
+      end_date: event.end_date,
+      registration_link: event.registration_link,
+      location: event.location,
+      coordinates: { lat: 0, lng: 0 },
+      gallery: event.gallery || [],
+      cover_image: event.cover_image || "/images/umkm/deram-deram-cover.jpg",
+      organizer: event.organizer,
+      ticket_price: event.ticket_price || "Gratis",
+      capacity: event.capacity || 0,
+      status,
+      category: event.category as any,
+      fun_facts: [],
+    };
+  });
+
+  const featuredEvents = mappedEvents.slice(0, 3); // Get top 3 for slider
+  const featuredSingle = mappedEvents.find(e => e.status !== 'Completed') || mappedEvents[0]; // Hero feature
 
   return (
     <>
@@ -28,7 +72,7 @@ export default function AgendaPage() {
         <AgendaHero featuredEvents={featuredEvents} />
 
         {/* 2. Horizontal Quick Calendar */}
-        <QuickCalendar events={agendaMockData} />
+        <QuickCalendar events={mappedEvents} />
 
         {/* 3. Event Stats */}
         <EventStats />
@@ -39,7 +83,7 @@ export default function AgendaPage() {
         )}
 
         {/* 5. Vertical Timeline */}
-        <EventTimeline events={agendaMockData} />
+        <EventTimeline events={mappedEvents} />
 
         {/* 6. Gurindam Spotlight */}
         <GurindamSpotlight />
